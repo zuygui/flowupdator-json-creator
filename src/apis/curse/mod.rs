@@ -1,5 +1,5 @@
 use super::common::{modloaders::ModLoaderType, Api, MinecraftVersionsList};
-use crate::secrets;
+// use crate::secrets;
 use reqwest::header::HeaderMap;
 use serde::{Deserialize, Serialize};
 
@@ -106,7 +106,7 @@ impl CurseApi {
     pub fn new() -> CurseApi {
         let mut headers = HeaderMap::new();
 
-        headers.insert("X-Api-Key", secrets::CURSE_API_KEY.parse().unwrap());
+        headers.insert("X-Api-Key", std::env::var("CURSE_API_KEY").unwrap().parse().unwrap());
 
         let client = CurseApi {
             http_client: reqwest::Client::builder()

@@ -7,7 +7,7 @@ pub struct ModsEntry {}
 impl Entry for ModsEntry {
   fn start(&self) {
 
-    log::remark("Mod entry started");
+    let _ = log::remark("Mod entry started");
 
   }
 }
